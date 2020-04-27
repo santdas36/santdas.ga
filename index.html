@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Dash Santosh</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#ffff47">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <script src="https://kit.fontawesome.com/b577e4ec8b.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<style>
+@font-face {
+font-family: "HelveticaNeue";
+src: url("css/HN_Regular.otf") format("opentype");
+font-weight: 400;
+}
+@font-face {
+font-family: "HelveticaNeue";
+src: url("css/HN_MediumExpanded.otf") format("opentype");
+font-weight: 500;
+}
+@font-face {
+font-family: "HelveticaNeue";
+src: url("css/HN_BlackExpanded.otf") format("opentype");
+font-weight: 900;
+}
+
+* {
+transition: all 0.2s !important;
+}
+
+body {
+background: #ffff47;
+color: #181f40;
+font-family: "HelveticaNeue";
+width: 100vw;
+}
+#home .container {
+min-height: 100vh;
+display: flex;
+flex-flow: column nowrap;
+align-items: center;
+justify-content: center;
+padding: 3rem 0;
+}
+.hero {
+width: calc(100% - 2rem);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.avatar {
+width: 25vw;
+height: 25vw;
+position: relative;
+left: 1.5vw;
+border-radius: 50%;
+box-shadow: -0.5rem 0.5rem #181f40;
+}
+.avatar-img {
+width: 25vw;
+border-radius: 50%;
+position: absolute;
+}
+@media (min-width: 600px) {
+.avatar-img.fixed {
+position: fixed;
+width: 3em;
+top: 1.25rem;
+left: 3.75rem;
+z-index: 3;
+box-shadow: 0 0 0 0.25rem #181f40;
+}
+.nav.fixed {
+background: #ffff47;
+padding: 1.5rem 1.5rem 0 0;
+}
+.nav.fixed ul {
+padding: 1rem;
+}
+.nav.fixed ul li a {
+font-size: 1em;
+}
+}
+.name {
+font-weight: 900;
+text-transform: uppercase;
+color: #ffff47;
+text-shadow:
+0.125rem 0.125rem #181f40,
+-0.125rem -0.125rem #181f40,
+-0.125rem 0.125rem #181f40,
+0.125rem -0.125rem #181f40,
+-0.5rem 0.5rem #181f40;
+letter-spacing: 0.125rem;
+font-size: 5.75vw;
+margin: 1rem 0 1rem 0.5rem;
+line-height: 1.2;
+}
+.name:hover {
+text-shadow: 0.125rem 0.125rem #181f40,
+-0.125rem -0.125rem #181f40,
+-0.125rem 0.125rem #181f40,
+0.125rem -0.125rem #181f40;
+transform: scale(1.0125);
+}
+.description, .greeting {
+font-weight: 500;
+font-size: 3.5vw;
+margin: 0;
+line-height: 1
+}
+.details {
+position: relative;
+left: -1.5vw;
+}
+.description {
+position: absolute;
+left: 22vw;
+transform: translateX(-50%);
+}
+.nav {
+padding: 3rem 5rem 0 0;
+z-index: 2;
+position: fixed;
+right: 0;
+top: 0;
+left: 0;
+}
+.nav ul {
+list-style-type: none;
+display: flex;
+justify-content: flex-end;
+padding: 2rem;
+margin: 0;
+}
+.nav ul li {
+padding: 0 1rem;
+}
+.nav ul li a {
+position: relative;
+color: #181f40;
+text-decoration: none;
+font-weight: 500;
+font-size: 1.25em;
+}
+.nav ul li a.nav-link:before {
+content: '';
+position: absolute;
+width: 100%;
+height: 0.25rem;
+border-radius: 0.3rem;
+background: #181f40;
+top: calc(100% + 0.5rem);
+transition: all 0.2s;
+transform: translateY(0.5rem);
+opacity: 0;
+}
+.nav ul li a.nav-link:hover:before {
+transform: translateY(0);
+opacity: 1;
+}
+.nav ul li a.follow {
+padding: 1rem 1.5rem 0.5rem 1.5rem;
+color: #181f40;
+background: #ffff47;
+border-radius: 10rem;
+border: 0.25rem solid #181f40;
+}
+.nav ul li.follow-toggle {
+position: relative;
+}
+.nav ul div.social {
+position: absolute;
+flex-flow: column nowrap;
+right: 1rem;
+top: calc(100% + 2rem);
+align-items: center;
+}
+.nav ul div.social {
+display: none;
+opacity: 0
+}
+.nav ul div.social.is-open {
+display: flex;
+opacity: 1
+}
+.nav ul div.social a span {
+padding: 0.75rem 0.5rem;
+margin: 0.5rem;
+border-radius: 1rem;
+border: solid 0.25rem #181f40;
+font-size: 2rem;
+background: #ffff47;
+color: #181f40;
+}
+.nav ul div.social a:hover span {
+background: #181f40;
+color: #ffff47;
+}
+.nav ul li a.follow:hover, .nav-toggle:hover {
+color: #ffff47;
+background: #181f40;
+}
+.nav-toggle {
+z-index: 99;
+position: fixed;
+padding: 0.5rem 1rem 0 1rem;
+color: #181f40;
+background: #ffff47;
+border-radius: 10rem;
+border: 0.25rem solid #181f40;
+font-size: 1.5rem;
+right: 0;
+top: 0;
+margin: 2rem;
+display: none;
+color: #181f40;
+text-decoration: none;
+font-weight: 500;
+}
+.cta-btn {
+font-size: 2rem;
+padding: 1.5rem 2rem 1rem 2rem;
+border: 0.25rem solid #181f40;
+border-radius: 10rem;
+white-space: nowrap;
+color: #181f40;
+text-decoration: none;
+font-weight: 500;
+}
+.cta-btn:hover {
+color: #ffff47;
+background: #181f40;
+}
+
+@media screen and (max-width: 600px), (max-aspect-ratio: 4/3){
+#home .container {
+padding: 5rem 0;
+}
+.hero {
+flex-flow: column;
+}
+.nav-toggle {
+display: block;
+}
+.nav{
+display: none;
+padding: 0;
+background: #ffff47;
+margin: 0;
+position: fixed;
+height: 0;
+}
+.nav.is-open {
+display: initial;
+height: 100vh;
+}
+.nav ul{
+flex-flow: column nowrap;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+.nav ul li a.follow {
+background: none;
+border: none;
+padding: 0 !important;
+}
+.nav ul li a.follow:hover {
+color: #181f40;
+background: none;
+}
+.nav ul div.social {
+flex-flow: row nowrap;
+right: 50%;
+transform: translateX(50%);
+}
+.avatar {
+width: 66%;
+height: auto;
+max-width: 240px;
+left: 0;
+box-shadow: none;
+}
+.avatar-img {
+box-shadow: 0 0 0 0.25em #181f40;
+width: 100%;
+position: static;
+}
+.avatar-img.rear {
+display: none;
+}
+.details {
+position: static;
+padding: 3rem 0;
+}
+.description, .greeting {
+font-size: 8vw;
+transform: none;
+left: 0;
+position: relative;
+text-align: center;
+}
+.name {
+font-size: 13vw;
+text-align: center;
+}
+}
+
+#contact {
+min-height: 100vh;
+background: #fff
+}
+footer {
+background: #181f40;
+color: #ffff47;
+text-align: center;
+padding: 3rem 3rem 2.5rem 3rem;
+}
+.copy {
+margin: 0;
+font-size: 1.25rem;
+font-weight: 500;
+}
+.copy a {
+color: #ffff47;
+text-decoration: none;
+}
+</style>
+
+</head>
+
+<script>
+   $(document).ready(function(){
+	   $(window).bind('scroll', function() {
+	   var navHeight = $('.nav').height();
+			 if ($(window).scrollTop() > navHeight) {
+				 $('.nav, .name, .avatar-img.front').addClass('fixed');
+			 }
+			 else {
+				 $('.nav, .name, .avatar-img.front').removeClass('fixed');
+			 }
+		});
+		$('.nav-toggle').on('click', function(event) {
+			event.preventDefault();
+			$('.nav').addClass('mobile-nav');
+			if (!$('.mobile-nav').hasClass('is-open')) {
+				$('.mobile-nav').addClass('is-open');	
+				$(this).text('Close');
+			} else {
+				$('.mobile-nav.is-open').removeClass('is-open');		
+				$(this).text('Menu');
+			}
+		});
+		$('.follow').on('click', function(event) {
+			event.preventDefault();
+			$social = $('.nav ul div.social');
+			if (!$social.hasClass('is-open')) {
+				$social.addClass('is-open');	
+				$(this).html('<i class="fas fa-chevron-up"></i>');
+			} else {
+				$('div.social.is-open').removeClass('is-open');		
+				$(this).html('Follow <i class="fas fa-chevron-right"></i>');
+			}
+		});
+	});
+	</script>
+
+<body>
+<header>
+<nav class="nav">
+<ul>
+<li><a href="#" class="nav-link">About</a></li>
+<li><a href="#" class="nav-link">Contact</a></li>
+<li class="follow-toggle"><a href="#" class="follow">Follow <i class="fas fa-chevron-right"></i></a>
+
+<div class="social">
+<a href="#"><span class="fab fb fa-facebook-f fa-fw"></span></a>
+<a href="#"><span class="fab db fa-dribbble fa-fw"></span></a>
+<a href="#"><span class="fab ig fa-instagram fa-fw"></span></a>
+<a href="#"><span class="fab tw fa-twitter fa-fw"></span></a>
+</div>
+
+
+</li>
+</ul>
+</nav>
+<a class="nav-toggle" href="#">Menu</a>
+</header>
+<main>
+<section id="home">
+<div class="container">
+	<div class="hero">
+		<div class="avatar">
+		<img src="rear.png" class="avatar-img rear"/>
+		<img src="avatar.png" class="avatar-img front"/>
+		</div>
+		<div class="details">
+		<h2 class="greeting">Hi. I am</h2>
+		<h1 class="name">Dash Santosh</h1>
+		<h2 class="description">I design stuff.</h2>
+		</div>
+		</div>
+	<div class="cta">
+		<a href="#contact" class="cta-btn">Contact Me</a>
+	</div>
+	</div>
+</section>
+<section id="contact">
+</section>
+</main>
+
+<footer>
+<p class="copy">Copyright 2020 | <a href="http://instagram.com/santdas36">@santdas36</a></p>
+</footer>
+
+</body>
+
+</html>
