@@ -719,11 +719,11 @@ $('a[href*="#"]')
 		$.post($form.attr("action"), $form.serialize()).then(
 			function() {
 				setTimeout( () => {
-					$('.success').fadeTo(300, 0);
+					$('.success').fadeTo(200, 0);
 						setTimeout( () => {
 							$('.success').html('<i class="fas fa-check fa-4x"></i><h3>Message Sent!</h3>');
-							$('.success').fadeTo(400, 1);
-						}, 400);
+							$('.success').fadeTo(200, 1);
+						}, 600);
 				}, 1000);
 		});
 	});  
