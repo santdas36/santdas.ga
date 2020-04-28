@@ -483,7 +483,13 @@ background: rgba(18,20,40,0.075);
  input:focus, textarea:focus {
 background: #fff;
 }
-
+.contact-form .success {
+width: 100%;
+text-align: center;
+vertical-align: center;
+margin: 5rem 0;
+display: none;
+}
 .radio {
 display: none;
 visibility: hidden;
@@ -501,13 +507,13 @@ font-size: 18px !important;
 padding-bottom: 0.5rem;
 }
 @media (min-width: 550px) {
-.contact-details {
+.contact-details, .contact-form {
 width: calc(100% - 10rem);
 padding: 9rem 5rem;
 }
-.contact-form {
-width: calc(100% - 10rem);
-padding: 9rem 5rem;
+.contact-form .success {
+width: 100%;
+margin: 10rem 0;
 }
 .radio-group {
 display: flex;
@@ -590,6 +596,10 @@ margin: 0 auto;
 		</div>
 	</div>
 	<div class="contact-form">
+	<div class="success">
+	<i class="fas fa-cog fa-spin fa-4x"></i>
+	<h3>Casting spells on the server-side...</h3>
+	</div>
 	<form action="" id="contact-form" class="contact-inner" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
 		<input type="text" name="bot-field" style="display:none;"/>
 		<div class="input-group">
@@ -702,9 +712,19 @@ $('a[href*="#"]')
 	$("#contact-form").submit(function(e) {
 		e.preventDefault();
 		var $form = $(this);
+		$form.fadeOut(200);
+		setTimeout( () => {
+		$('.success').fadeIn(200);
+		}, 200);
 		$.post($form.attr("action"), $form.serialize()).then(
 			function() {
-			 alert("Thank you!");
+				setTimeout( () => {
+					$('.success').fadeOut(200);
+						setTimeout( () => {
+							$('.success').html('<i class="fas fa-check fa-4x"></i><h3>Message Sent!</h3>');
+							$('.success').fadeIn(200);
+						}, 400);
+				}, 1000);
 		});
 	});  
 });
