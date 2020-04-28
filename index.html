@@ -590,23 +590,30 @@ margin: 0 auto;
 		</div>
 	</div>
 	<div class="contact-form">
-	<form action="" class="contact-inner" method="post" netlify>
-		<div class="input-group"><label for="name">Name</label><input type="text" name="name" id="name" placeholder="type your name here..." required></div>
-		<div class="input-group"><label for="email">Email</label><input type="email" name="email" id="email" placeholder="type your email here..." required></div>
-		<div class="input-group"><label for="subject">Subject</label>
+	<form action="" id="contact-form" class="contact-inner" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+		<input type="text" name="bot-field" style="display:none;"/>
+		<div class="input-group">
+			<label for="name">Name</label><input type="text" name="name" id="name" placeholder="type your name here..." required>
+		</div>
+		<div class="input-group">
+			<label for="email">Email</label><input type="email" name="email" id="email" placeholder="type your email here..." required>
+			</div>
+		<div class="input-group"><label>Subject</label>
 			<div class="subject">
-			<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="webdesign" required>
-				<label for="webdesign">Web Designing</label></div>
-			<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="logodesign">
-				<label for="logodesign">Logo Designing</label></div>
-			<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="contentwriting">
-				<label for="contentwriting">Content Writing</label></div>
-			<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="other">
-				<label for="other">Other...</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="webdesign" required>
+					<label for="webdesign">Web Designing</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="logodesign">
+					<label for="logodesign">Logo Designing</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="contentwriting">
+					<label for="contentwriting">Content Writing</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="other">
+					<label for="other">Other...</label></div>
 			</div>
 			<input type="text" name="subject-other" style="display: none" placeholder="please specify the subject...">
 		</div>
-		<div class="input-group"><label for="message">Message</label><textarea name="message" rows="3" placeholder="type your message here..." required></textarea></div>
+		<div class="input-group">
+			<label for="message">Message</label><textarea name="message"  placeholder="type your message here..." required></textarea>
+		</div>
 		<div class="input-group"><input type="submit" value="Send Message"/></div>
 	</form>
 	</div>
@@ -634,9 +641,9 @@ margin: 0 auto;
 		$('.radio-group label').on('click', function() {
 			setTimeout(() => {
 			if ($('input[id="other"]').prop('checked')) {
-				$('input[name="subject-other"]').slideDown(200).prop("required", true);	
+				$('input[name="subject-other"]').slideDown(200).prop("required", true);
 			} else {
-				$('input[name="subject-other"]').slideUp(200).prop("required", false);	
+				$('input[name="subject-other"]').slideUp(200).prop("required", false);
 			}
 			}, 100);
 		});
@@ -691,9 +698,16 @@ $('a[href*="#"]')
       }
     }
   });
-
   
-	});
+	$("#contact-form").submit(function(e) {
+		e.preventDefault();
+		var $form = $(this);
+		$.post($form.attr("action"), $form.serialize()).then(
+			function() {
+			 alert("Thank you!");
+		});
+	});  
+});
 </script>
 
 </html>
