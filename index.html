@@ -32,7 +32,7 @@ font-weight: 900;
 }
 
 * {
-transition: all 0.2s !important;
+transition: all 0.3s;
 }
 
 body {
@@ -40,6 +40,7 @@ background: #ffff47;
 color: #181f40;
 font-family: "HelveticaNeue";
 width: 100vw;
+-webkit-tap-highlight-color: transparent;
 }
 #home .container {
 min-height: 100vh;
@@ -67,26 +68,37 @@ box-shadow: -0.5rem 0.5rem #181f40;
 width: 25vw;
 border-radius: 50%;
 position: absolute;
+transform: skewX(0deg);
 }
-@media (min-width: 600px) {
-.avatar-img.fixed {
-position: fixed;
-width: 3em;
-top: 1.25rem;
-left: 3.75rem;
-z-index: 3;
-box-shadow: 0 0 0 0.25rem #181f40;
+.avatar-img.rear.is-animating {
+  animation: glitch 1s ease-in-out infinite;
 }
-.nav.fixed {
-background: #ffff47;
-padding: 1.5rem 1.5rem 0 0;
-}
-.nav.fixed ul {
-padding: 1rem;
-}
-.nav.fixed ul li a {
-font-size: 1em;
-}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: skewX(0deg);
+  }
+  41% {
+    transform: skewX(5deg);
+  }
+  42% {
+    transform: skewX(-5deg);
+  }
+  59% {
+    transform: skewX(3deg) skewY(5deg);
+  }
+  60% {
+    transform: skewX(-3deg) skewY(-5deg);
+  }
+  63% {
+    transform: skewX(5deg) skewY(-2deg);
+  }
+  70% {
+    transform: skewX(-3deg) skewY(-3deg);
+  }
+  71% {
+    transform: skewX(5deg) skewY(-2deg);
+  }
 }
 .name {
 font-weight: 900;
@@ -107,7 +119,9 @@ line-height: 1.2;
 text-shadow: 0.125rem 0.125rem #181f40,
 -0.125rem -0.125rem #181f40,
 -0.125rem 0.125rem #181f40,
-0.125rem -0.125rem #181f40;
+0.125rem -0.125rem #181f40,
+-0.5rem 0.5rem #ffff47,
+-0.75rem 0.75rem #181f40;
 transform: scale(1.0125);
 }
 .description, .greeting {
@@ -126,7 +140,7 @@ left: 22vw;
 transform: translateX(-50%);
 }
 .nav {
-padding: 3rem 5rem 0 0;
+padding: 3rem 3rem 0 0;
 z-index: 2;
 position: fixed;
 right: 0;
@@ -148,7 +162,7 @@ position: relative;
 color: #181f40;
 text-decoration: none;
 font-weight: 500;
-font-size: 1.25em;
+font-size: 1.75rem;
 }
 .nav ul li a.nav-link:before {
 content: '';
@@ -173,6 +187,16 @@ background: #ffff47;
 border-radius: 10rem;
 border: 0.25rem solid #181f40;
 }
+.nav ul li a.follow .fa-chevron-right{
+font-size: 1rem;
+}
+.nav ul li a.follow i:before, .cta-btn i:before {
+color: #181f40;
+transition: color 0.2s;
+}
+.nav ul li a.follow:hover i:before, .cta-btn:hover i:before{
+color: #ffff47;
+}
 .nav ul li.follow-toggle {
 position: relative;
 }
@@ -180,16 +204,14 @@ position: relative;
 position: absolute;
 flex-flow: column nowrap;
 right: 1rem;
-top: calc(100% + 2rem);
+top: calc(100% + 3rem);
 align-items: center;
 }
 .nav ul div.social {
 display: none;
-opacity: 0
 }
 .nav ul div.social.is-open {
 display: flex;
-opacity: 1
 }
 .nav ul div.social a span {
 padding: 0.75rem 0.5rem;
@@ -208,6 +230,9 @@ color: #ffff47;
 color: #ffff47;
 background: #181f40;
 }
+.nav-link.hidden {
+display:none;
+}
 .nav-toggle {
 z-index: 99;
 position: fixed;
@@ -225,7 +250,7 @@ color: #181f40;
 text-decoration: none;
 font-weight: 500;
 }
-.cta-btn {
+.cta-btn, .contact-btn {
 font-size: 2rem;
 padding: 1.5rem 2rem 1rem 2rem;
 border: 0.25rem solid #181f40;
@@ -235,12 +260,45 @@ color: #181f40;
 text-decoration: none;
 font-weight: 500;
 }
-.cta-btn:hover {
+.contact-btn {
+font-size: 1.75rem;
+padding: 1.25rem 1.75rem 0.5rem 1.75rem;
+margin: 0 0 2rem 0;
+text-align: center;
+}
+.cta-btn:hover, .contact-btn:hover {
 color: #ffff47;
 background: #181f40;
 }
 
-@media screen and (max-width: 600px), (max-aspect-ratio: 4/3){
+input[type="submit"] {
+font-size: 1.75rem;
+font-weight: 500;
+background: #fff;
+border-radius: 5rem;
+border: 0.25rem solid #181f40;
+font-size: 1.75rem;
+padding: 1rem 1.75rem 0.25rem 1.75rem;
+}
+input[type="submit"]:focus, 
+input[type="submit"]:hover {
+background: #181f40;
+color: #fff;
+outline: none;
+}
+
+
+@media (max-width: 550px) {
+.contact-btn {
+display: block;
+padding: 1rem 1.75rem 0.25rem 1.75rem;
+}
+input[type="submit"] {
+width: 100%;
+padding: 1.5rem 1.75rem 0.75rem 1.75rem;
+}
+}
+@media (max-width: 550px), (max-aspect-ratio: 4/3){
 #home .container {
 padding: 5rem 0;
 }
@@ -256,11 +314,10 @@ padding: 0;
 background: #ffff47;
 margin: 0;
 position: fixed;
-height: 0;
+height: 100vh;
 }
 .nav.is-open {
-display: initial;
-height: 100vh;
+display: block;
 }
 .nav ul{
 flex-flow: column nowrap;
@@ -276,6 +333,12 @@ padding: 0 !important;
 .nav ul li a.follow:hover {
 color: #181f40;
 background: none;
+}
+.nav ul li a.follow:hover i:before {
+color: #181f40;
+}
+.nav-link.hidden {
+display: initial;
 }
 .nav ul div.social {
 flex-flow: row nowrap;
@@ -295,7 +358,7 @@ width: 100%;
 position: static;
 }
 .avatar-img.rear {
-display: none;
+position: absolute;
 }
 .details {
 position: static;
@@ -312,11 +375,48 @@ text-align: center;
 font-size: 13vw;
 text-align: center;
 }
-}
 
-#contact {
+}
+@media (min-width: 551px) and (min-aspect-ratio: 4/3){
+.avatar-img.fixed {
+position: fixed;
+width: 5rem;
+top: 1.375rem;
+left: 3.75rem;
+z-index: 3;
+box-shadow: 0 0 0 0.25rem #181f40;
+}
+.nav.fixed {
+background: #ffff47;
+padding: 1.5rem 1.5rem 0.25rem 0;
+}
+.nav.fixed ul {
+padding: 1rem;
+}
+.nav.fixed ul li a {
+font-size: 1.5rem;
+}
+}
+@media (min-width: 551px) and (max-aspect-ratio: 4/3) {
+.nav ul li a {
+font-size: 2rem !important;
+}
+}
+@media (min-width: 751px) and (max-aspect-ratio: 4/3) {
+.name {
+font-size: 9rem;
+max-width: 750px;
+}
+.description, .greeting {
+font-size: 4rem;
+}
+.cta {
+margin-top: 3rem;
+}
+}
+section#about {
 min-height: 100vh;
-background: #fff
+background: #fff;
 }
 footer {
 background: #181f40;
@@ -333,52 +433,114 @@ font-weight: 500;
 color: #ffff47;
 text-decoration: none;
 }
+
+
+
+section#contact {
+background: #fff;
+width: 100%;
+}
+section#contact .container {
+padding: 0;
+}
+.contact-split {
+display: flex;
+flex-flow: column nowrap;
+}
+.contact-details {
+width: calc(100% - 6rem);
+background: #ffff47;
+padding: 9rem 3rem;
+}
+.contact-form {
+width: calc(100% - 6rem);
+background: #fff;
+padding: 9rem 3rem;
+}
+.input-group .subject {
+display: flex;
+flex-flow: row wrap;
+margin-bottom: 1rem;
+}
+.radio-group {
+display: flex;
+width: 50%;
+}
+.radio-group label {
+font-size: 1.5rem;
+margin: 0.5rem;
+padding: 1rem 1rem 0.5rem 1rem;
+border: 0.25rem solid #181f40;
+border-radius: 0.5rem;
+width: 100%;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+.radio-group label:hover, input:hover, textarea:hover {
+background: rgba(18,20,40,0.075);
+}
+ input:focus, textarea:focus {
+background: #fff;
+}
+
+.radio {
+display: none;
+visibility: hidden;
+height: 0;
+width: 0;
+}
+.radio:checked + label {
+background: #181f40;
+color: #fff;
+}
+::placeholder {
+color: #181f40;
+opacity: 0.25;
+font-size: 18px !important;
+padding-bottom: 0.5rem;
+}
+@media (min-width: 550px) {
+.contact-details {
+width: calc(100% - 10rem);
+padding: 9rem 5rem;
+}
+.contact-form {
+width: calc(100% - 10rem);
+padding: 9rem 5rem;
+}
+.radio-group {
+display: flex;
+width: 50%;
+}
+}
+@media (min-width: 750px) {
+.contact-split {
+flex-flow: row nowrap;
+}
+.contact-details {
+width: 50%;
+padding: 9rem 5rem;
+}
+.contact-form {
+width: 50%;
+padding: 12rem 5rem 5rem 5rem;
+}
+.contact-inner {
+max-width: 400px;
+margin: 0 auto;
+}
+}
 </style>
 
 </head>
-
-<script>
-   $(document).ready(function(){
-	   $(window).bind('scroll', function() {
-	   var navHeight = $('.nav').height();
-			 if ($(window).scrollTop() > navHeight) {
-				 $('.nav, .name, .avatar-img.front').addClass('fixed');
-			 }
-			 else {
-				 $('.nav, .name, .avatar-img.front').removeClass('fixed');
-			 }
-		});
-		$('.nav-toggle').on('click', function(event) {
-			event.preventDefault();
-			$('.nav').addClass('mobile-nav');
-			if (!$('.mobile-nav').hasClass('is-open')) {
-				$('.mobile-nav').addClass('is-open');	
-				$(this).text('Close');
-			} else {
-				$('.mobile-nav.is-open').removeClass('is-open');		
-				$(this).text('Menu');
-			}
-		});
-		$('.follow').on('click', function(event) {
-			event.preventDefault();
-			$social = $('.nav ul div.social');
-			if (!$social.hasClass('is-open')) {
-				$social.addClass('is-open');	
-				$(this).html('<i class="fas fa-chevron-up"></i>');
-			} else {
-				$('div.social.is-open').removeClass('is-open');		
-				$(this).html('Follow <i class="fas fa-chevron-right"></i>');
-			}
-		});
-	});
-	</script>
-
 <body>
 <header>
 <nav class="nav">
 <ul>
-<li><a href="#" class="nav-link">About</a></li>
-<li><a href="#" class="nav-link">Contact</a></li>
+<li><a href="#home" class="nav-link hidden">Home</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
 <li class="follow-toggle"><a href="#" class="follow">Follow <i class="fas fa-chevron-right"></i></a>
 
 <div class="social">
@@ -400,7 +562,7 @@ text-decoration: none;
 	<div class="hero">
 		<div class="avatar">
 		<img src="rear.png" class="avatar-img rear"/>
-		<img src="avatar.png" class="avatar-img front"/>
+		<a href="#home"><img src="avatar.png" class="avatar-img front"/></a>
 		</div>
 		<div class="details">
 		<h2 class="greeting">Hi. I am</h2>
@@ -409,11 +571,47 @@ text-decoration: none;
 		</div>
 		</div>
 	<div class="cta">
-		<a href="#contact" class="cta-btn">Contact Me</a>
+		<a href="#contact" class="cta-btn">Get in touch</a>
 	</div>
 	</div>
 </section>
+<section id="about">
+</section>
 <section id="contact">
+<div class="container">
+<div class="contact-split">
+	<div class="contact-details">
+		<div class="contact-inner">
+		<h2>Get in touch</h2>
+		<p>
+		Have a startling idea, but don't know where to begin? Looking for someone to design a website for your new startup? Staring at your empty blog page? </p><p style="margin-bottom: 3rem">Write to me and let's work together, no matter what.
+		</p>
+		<a href="mailto:santdas36@gmail.com" class="contact-btn">Email Now</i></a>
+		</div>
+	</div>
+	<div class="contact-form">
+	<form action="" class="contact-inner" method="post" netlify>
+		<div class="input-group"><label for="name">Name</label><input type="text" name="name" id="name" placeholder="type your name here..." required></div>
+		<div class="input-group"><label for="email">Email</label><input type="email" name="email" id="email" placeholder="type your email here..." required></div>
+		<div class="input-group"><label for="subject">Subject</label>
+			<div class="subject">
+			<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="webdesign" required>
+				<label for="webdesign">Web Designing</label></div>
+			<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="logodesign">
+				<label for="logodesign">Logo Designing</label></div>
+			<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="contentwriting">
+				<label for="contentwriting">Content Writing</label></div>
+			<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="other">
+				<label for="other">Other...</label></div>
+			</div>
+			<input type="text" name="subject-other" style="display: none" placeholder="please specify the subject...">
+		</div>
+		<div class="input-group"><label for="message">Message</label><textarea name="message" rows="3" placeholder="type your message here..." required></textarea></div>
+		<div class="input-group"><input type="submit" value="Send Message"/></div>
+	</form>
+	</div>
+</div>
+</div>
 </section>
 </main>
 
@@ -422,5 +620,80 @@ text-decoration: none;
 </footer>
 
 </body>
+<script>
+   $(document).ready(function(){
+	   $(window).bind('scroll', function() {
+	   var navHeight = $('.nav').height();
+			 if ($(window).scrollTop() > navHeight) {
+				 $('.nav, .name, .avatar-img.front').addClass('fixed');
+			 }
+			 else {
+				 $('.nav, .name, .avatar-img.front').removeClass('fixed');
+			 }
+		});
+		$('.radio-group label').on('click', function() {
+			setTimeout(() => {
+			if ($('input[id="other"]').prop('checked')) {
+				$('input[name="subject-other"]').slideDown(200).prop("required", true);	
+			} else {
+				$('input[name="subject-other"]').slideUp(200).prop("required", false);	
+			}
+			}, 100);
+		});
+		$('.nav-toggle').on('click', function(event) {
+			event.preventDefault();
+			$('.nav').addClass('mobile-nav');
+			if (!$('.mobile-nav').hasClass('is-open')) {
+				$('.mobile-nav').addClass('is-open');	
+				$(this).text('Close');
+			} else {
+				$('.mobile-nav.is-open').removeClass('is-open');		
+				$(this).text('Menu');
+			}
+		});
+		$('.name').on('mouseenter', function() {
+			$('.avatar-img.rear').addClass('is-animating');
+			$('.avatar-img.front:not(.fixed)').css('opacity',0);
+		});
+		$('.name').on('mouseleave', function() {
+			$('.avatar-img.rear').removeClass('is-animating');
+			$('.avatar-img.front').css('opacity',1);
+		});
+		$('.follow').on('click', function(event) {
+			event.preventDefault();
+			$social = $('.nav ul div.social');
+			if (!$social.hasClass('is-open')) {
+				$social.addClass('is-open');	
+				$(this).html('<i class="fas fa-chevron-up"></i>');
+			} else {
+				$('div.social.is-open').removeClass('is-open');		
+				$(this).html('Follow <i class="fas fa-chevron-right"></i>');
+			}
+		});
+$('a[href*="#"]')
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        $('.mobile-nav.is-open').removeClass('is-open');		
+	   $('.nav-toggle').text('Menu');
+      }
+    }
+  });
+
+  
+	});
+</script>
 
 </html>
