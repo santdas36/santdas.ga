@@ -11,9 +11,8 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <script src="https://kit.fontawesome.com/b577e4ec8b.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
 <style>
 @font-face {
 font-family: "HelveticaNeue";
@@ -30,7 +29,23 @@ font-family: "HelveticaNeue";
 src: url("css/HN_BlackExpanded.otf") format("opentype");
 font-weight: 900;
 }
-
+.preload {
+position: fixed;
+z-index: 99;
+top: 0;
+left: 0;
+height: 100vh;
+width: 100vw;
+background: #ffff47;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.preload img{
+width: 50%;
+max-width: 200px;
+animation: glitch 1s infinite;
+}
 * {
 transition: all 0.3s;
 }
@@ -71,11 +86,11 @@ position: absolute;
 transform: skewX(0deg);
 }
 .avatar-img.rear.is-animating {
-  animation: glitch 1s ease-in-out infinite;
+  animation: glitch 2s ease-in-out infinite;
 }
 
 @keyframes glitch {
-  0%, 100% {
+  0%, 35%, 75%, 100% {
     transform: skewX(0deg);
   }
   41% {
@@ -234,7 +249,7 @@ background: #181f40;
 display:none;
 }
 .nav-toggle {
-z-index: 99;
+z-index: 5;
 position: fixed;
 padding: 0.5rem 1rem 0 1rem;
 color: #181f40;
@@ -365,14 +380,14 @@ position: static;
 padding: 3rem 0;
 }
 .description, .greeting {
-font-size: 8vw;
+font-size: 7.5vw;
 transform: none;
 left: 0;
 position: relative;
 text-align: center;
 }
 .name {
-font-size: 13vw;
+font-size: 12.75vw;
 text-align: center;
 }
 
@@ -450,12 +465,12 @@ flex-flow: column nowrap;
 .contact-details {
 width: calc(100% - 6rem);
 background: #ffff47;
-padding: 9rem 3rem;
+padding: 5rem 3rem 3rem 3rem;
 }
 .contact-form {
 width: calc(100% - 6rem);
 background: #fff;
-padding: 9rem 3rem;
+padding: 5rem 3rem;
 }
 .input-group .subject {
 display: flex;
@@ -506,6 +521,10 @@ opacity: 0.25;
 font-size: 18px !important;
 padding-bottom: 0.5rem;
 }
+.contact-details img {
+width: 100%;
+border-radius: 0.25rem;
+}
 @media (min-width: 550px) {
 .contact-details, .contact-form {
 width: calc(100% - 10rem);
@@ -528,6 +547,12 @@ flex-flow: row nowrap;
 width: 50%;
 padding: 9rem 5rem;
 }
+.contact-details img {
+width: calc(100% + 11.5rem);
+border-radius: 0;
+margin-left: -5.75rem;
+margin-top: -9rem;
+}
 .contact-form {
 width: 50%;
 padding: 12rem 5rem 5rem 5rem;
@@ -541,6 +566,9 @@ margin: 0 auto;
 
 </head>
 <body>
+<div class="preload">
+	<img src="rear.svg">
+</div>
 <header>
 <nav class="nav">
 <ul>
@@ -567,7 +595,7 @@ margin: 0 auto;
 <div class="container">
 	<div class="hero">
 		<div class="avatar">
-		<img src="rear.png" class="avatar-img rear"/>
+		<img src="rear.svg" class="avatar-img rear"/>
 		<a href="#home"><img src="avatar.png" class="avatar-img front"/></a>
 		</div>
 		<div class="details">
@@ -588,6 +616,7 @@ margin: 0 auto;
 <div class="contact-split">
 	<div class="contact-details">
 		<div class="contact-inner">
+		<img src="contact.png"/>
 		<h2>Get in touch</h2>
 		<p>
 		Have a startling idea, but don't know where to begin? Looking for someone to design a website for your new startup? Staring at your empty blog page? </p><p style="margin-bottom: 3rem">Write to me and let's work together, no matter what.
@@ -610,14 +639,14 @@ margin: 0 auto;
 			</div>
 		<div class="input-group"><label for="subject">Subject</label>
 			<div class="subject">
-				<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="Web Designing Request | Mail from santdas.ga" required>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="Web Design Request from website" required>
 					<label for="webdesign">Web Designing</label></div>
-				<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="Logo Designing Request | Mail from santdas.ga">
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="Logo Design Request from website">
 					<label for="logodesign">Logo Designing</label></div>
-				<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="Content Writing Request | Mail from santdas.ga">
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="Content Writing Request from website">
 					<label for="contentwriting">Content Writing</label></div>
-				<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="other">
-					<label for="Special Request | Mail from santdas.ga">Other...</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="Special Request from website">
+					<label for="other">Other...</label></div>
 			</div>
 			<input type="text" name="subject-other" style="display: none" placeholder="please specify the subject...">
 		</div>
@@ -637,6 +666,8 @@ margin: 0 auto;
 </footer>
 
 </body>
+  <script src="https://kit.fontawesome.com/b577e4ec8b.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
    $(document).ready(function(){
 	   $(window).bind('scroll', function() {
@@ -726,7 +757,15 @@ $('a[href*="#"]')
 						}, 600);
 				}, 1000);
 		});
-	});  
+	});
+	$(window).on('load', function() {
+		setTimeout( () => {
+			$('.preload img').css('animation-play-state','paused').css('opacity',0);
+			setTimeout( () => {
+				$('.preload').fadeOut(300);
+				}, 600);
+			}, 300);
+	});
 });
 </script>
 
