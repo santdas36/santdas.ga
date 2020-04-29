@@ -330,6 +330,7 @@ background: #ffff47;
 margin: 0;
 position: fixed;
 height: 100vh;
+transform: none !important;
 }
 .nav.is-open {
 display: block;
@@ -371,6 +372,9 @@ box-shadow: none;
 box-shadow: 0 0 0 0.25em #181f40;
 width: 100%;
 position: static;
+}
+.avatar-img.fixed {
+transform: none !important;
 }
 .avatar-img.rear {
 position: absolute;
@@ -428,10 +432,6 @@ font-size: 4rem;
 .cta {
 margin-top: 3rem;
 }
-}
-section#about {
-min-height: 100vh;
-background: #fff;
 }
 footer {
 background: #181f40;
@@ -522,13 +522,17 @@ font-size: 18px !important;
 padding-bottom: 0.5rem;
 }
 .contact-details img {
-width: 100%;
-border-radius: 0.25rem;
+width: calc(100% + 6rem);
+margin: -5rem 0 3rem -3rem;
 }
 @media (min-width: 550px) {
 .contact-details, .contact-form {
 width: calc(100% - 10rem);
-padding: 9rem 5rem;
+padding: 5rem 5rem;
+}
+.contact-details img {
+width: 100%;
+margin: 0;
 }
 .contact-form .success {
 width: 100%;
@@ -562,12 +566,20 @@ max-width: 400px;
 margin: 0 auto;
 }
 }
+
+
+section#about {
+background: #fff;
+}
+section#about .container {
+padding: 5rem;
+}
 </style>
 
 </head>
 <body>
 <div class="preload">
-	<img src="rear.svg">
+	<img src="images/rear.svg">
 </div>
 <header>
 <nav class="nav">
@@ -595,8 +607,8 @@ margin: 0 auto;
 <div class="container">
 	<div class="hero">
 		<div class="avatar">
-		<img src="rear.svg" class="avatar-img rear"/>
-		<a href="#home"><img src="avatar.png" class="avatar-img front"/></a>
+		<img src="images/rear.svg" class="avatar-img rear"/>
+		<a href="#home"><img src="images/avatar.png" class="avatar-img front"/></a>
 		</div>
 		<div class="details">
 		<h2 class="greeting">Hi. I am</h2>
@@ -610,13 +622,16 @@ margin: 0 auto;
 	</div>
 </section>
 <section id="about">
+<div class="container">
+<h2>WEIRD<br>IS<br>COOL</h2>
+</div>
 </section>
 <section id="contact">
 <div class="container">
 <div class="contact-split">
 	<div class="contact-details">
 		<div class="contact-inner">
-		<img src="contact.png"/>
+		<img src="images/contact.png"/>
 		<h2>Get in touch</h2>
 		<p>
 		Have a startling idea, but don't know where to begin? Looking for someone to design a website for your new startup? Staring at your empty blog page? </p><p style="margin-bottom: 3rem">Write to me and let's work together, no matter what.
@@ -670,15 +685,15 @@ margin: 0 auto;
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
    $(document).ready(function(){
-	   $(window).bind('scroll', function() {
 	   var navHeight = $('.nav').height();
+	   function fixNav() {
 			 if ($(window).scrollTop() > navHeight) {
 				 $('.nav, .name, .avatar-img.front').addClass('fixed');
 			 }
 			 else {
 				 $('.nav, .name, .avatar-img.front').removeClass('fixed');
 			 }
-		});
+	   }
 		$('.radio-group label').on('click', function() {
 			setTimeout(() => {
 			if ($('input[id="other"]').prop('checked')) {
@@ -758,7 +773,40 @@ $('a[href*="#"]')
 				}, 1000);
 		});
 	});
+	
+var didScroll;
+var lastScrollTop = 0;
+var delta = 15;
+var windowHeight = $(window).height();
+
+$(window).on('scroll', function(event){
+    didScroll = true;
+    fixNav();
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+        if (st > lastScrollTop && st > windowHeight){
+        $('.nav, .avatar-img.fixed').css('transform','translateY(-20vh)');
+    } else {
+        if(st + $(window).height() < $(document).height()) {
+        $('.nav, .avatar-img.fixed').css('transform','translateY(0)');
+        }
+    }
+    
+    lastScrollTop = st;
+}	
 	$(window).on('load', function() {
+		fixNav();
 		setTimeout( () => {
 			$('.preload img').css('animation-play-state','paused').css('opacity',0);
 			setTimeout( () => {
