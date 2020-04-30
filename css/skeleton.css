@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 a {
   color: #181f40; }
 a:hover {
-  color: #181f40; }
+  color: #181f40;}
 
 
 /* Buttons
@@ -116,7 +116,7 @@ select {
   font-size: 2rem;
   padding: 0.5rem 1rem 0 1rem; 
   /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #fff;
+  background-color: inherit;
   border: 0.25rem solid #181f40;
   border-radius: 0.5rem;
   box-shadow: none;
