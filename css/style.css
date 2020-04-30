@@ -348,6 +348,7 @@ position: static;
 }
 .avatar-img.fixed {
 transform: none !important;
+z-index: 3;
 }
 .avatar-img.rear {
 position: absolute;
