@@ -362,10 +362,10 @@ font-size: 5rem !important;
 <li class="follow-toggle"><a href="#" class="follow">Follow <i class="fas fa-chevron-right"></i></a>
 
 <div class="social">
-<a href="#"><span class="fab fb fa-facebook-f fa-fw"></span></a>
-<a href="#"><span class="fab db fa-dribbble fa-fw"></span></a>
-<a href="#"><span class="fab ig fa-instagram fa-fw"></span></a>
-<a href="#"><span class="fab tw fa-twitter fa-fw"></span></a>
+	<a href="https://facebook.com/santdas36"><span class="fab fb fa-facebook-f fa-fw"></span></a>
+	<a href="https://dribbble.com/santdas36"><span class="fab db fa-dribbble fa-fw"></span></a>
+	<a href="https://instagram.com/santdas36"><span class="fab ig fa-instagram fa-fw"></span></a>
+	<a href="https://twitter.com/santdas36"><span class="fab tw fa-twitter fa-fw"></span></a>
 </div>
 
 
@@ -426,14 +426,17 @@ font-size: 5rem !important;
 	<div class="stuffs">
 		<div class="ican">
 			<div class="stuff-inner">
+				<div>
 				<h2>Stuff I can do</h2>
 				<ul>
 					<li>Design what's in your mind</li>
 					<li>Develop what you desire</li>
 					<li>Make posters that inspire</li>
 					<li>Write content for your blog</li>
-					<li>Do jokes, on demand XD</li>
+					<li>And what not...</li>
 				</ul>
+				<p>All this, with a touch of <b>simplicity.</b></p>
+				</div>
 			</div>
 		</div>
 		<div class="iknow">
@@ -503,10 +506,10 @@ font-size: 5rem !important;
 		santdas36@gmail.com<br>
 		@santdas36
 			<div class="social">
-				<a href="#"><span class="fab fb fa-facebook-f fa-fw"></span></a>
-				<a href="#"><span class="fab db fa-dribbble fa-fw"></span></a>
-				<a href="#"><span class="fab ig fa-instagram fa-fw"></span></a>
-				<a href="#"><span class="fab tw fa-twitter fa-fw"></span></a>
+				<a href="https://facebook.com/santdas36"><span class="fab fb fa-facebook-f fa-fw"></span></a>
+				<a href="https://dribbble.com/santdas36"><span class="fab db fa-dribbble fa-fw"></span></a>
+				<a href="https://instagram.com/santdas36"><span class="fab ig fa-instagram fa-fw"></span></a>
+				<a href="https://twitter.com/santdas36"><span class="fab tw fa-twitter fa-fw"></span></a>
 			</div>			
 		</p>
 		<a href="mailto:santdas36@gmail.com" class="contact-btn">Email Now</i></a>
@@ -557,6 +560,7 @@ font-size: 5rem !important;
 <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 <script>
    $(document).ready(function(){
+   
 	   var navHeight = $('.nav').height();
 	   var windowHeight = $(window).height();
 	   function fixNav() {
@@ -644,7 +648,6 @@ font-size: 5rem !important;
 			}
 		});
 $('a[href*="#"]')
-  .not('[href="#"]')
   .not('[href="#0"]')
   .click(function(event) {
     if (
@@ -705,12 +708,12 @@ function hasScrolled() {
     if(Math.abs(lastScrollTop - st) <= delta)
         return;
         if (st > lastScrollTop && st > windowHeight){
-        $('.nav, .avatar-img.fixed').css('transform','translateY(-20vh)');
+        $('.nav, .avatar-img').css('transform','translateY(-20vh)');
         $('div.social.is-open').removeClass('is-open');
         $('.follow').html('Follow <i class="fas fa-chevron-right"></i>');
     } else {
         if(st + windowHeight < $(document).height()) {
-        $('.nav, .avatar-img.fixed').css('transform','translateY(0)');
+        $('.nav, .avatar-img').css('transform','translateY(0)');
         }
     }
     
