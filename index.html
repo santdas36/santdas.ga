@@ -64,14 +64,149 @@ section#about {
 background: #fff;
 }
 section#about .container {
+padding: 3rem;
+}
+
+.feature-text{
+width: 100%;
+}
+.feature .feature-img {
+width: 100%;
+position: relative;
+}
+.feature .feature-img.list-item {
+margin-bottom: 1.5rem;
+}
+.feature-img img {
+max-height: 40rem;
+object-fit: cover;
+width: 100%;
+}
+.feature .feature-img .feature-img-caption {
+position: absolute;
+right: 2.5rem;
+bottom: 2rem;
+padding: 0;
+margin: 0;
+font-size: 3em;
+font-weight: 800;
+text-align: right;
+line-height: 1.2;
+text-shadow: -0.25rem -0.25rem #ffff47;
+text-transform: uppercase;
+}
+
+.scroll-next, .scroll-back {
+display: none;
+}
+
+@media (min-width: 550px) {
+section#about .container {
 padding: 5rem;
+}
+}
+
+@media (min-width: 750px) {
+section#about .container {
+padding: 0;
+}
+
+.feature {
+display: flex;
+flex-direction: row;
+width: 100%;
+padding: 9rem 0;
+overflow-x: scroll;
+-ms-overflow-style: none;
+}
+.feature::-webkit-scrollbar {
+display: none;
+}
+.feature-text{
+flex: 0 0 calc(70% - 15rem);
+margin: 0 5rem;
+display: flex;
+flex-flow: column;
+justify-content: flex-end;
+}
+.feature .feature-img {
+flex: 0 0 30%;
+position: relative;
+}
+.feature-img img {
+width: 100%;
+max-height: 100%;
+}
+.feature .feature-img .feature-img-caption {
+position: absolute;
+right: -2rem;
+top: 2rem;
+padding: 0;
+margin: 0;
+font-size: 5rem;
+font-weight: 900;
+text-align: right;
+line-height: 1.2;
+text-shadow: -0.5rem -0.5rem #ffff47;
+}
+.feature-img.list-item {
+padding-right: 5rem;
+margin-bottom: 0;
+}
+.feature-img.list-item .scroll-next {
+display: block;
+position: absolute;
+width: 100%;
+height: calc(100% - 1rem);
+background: linear-gradient( to right, #ffff47 10%, transparent 90%);
+cursor: pointer;
+top: 0;
+left: 0;
+padding-left: 2rem;
+display: flex;
+font-size: 2rem;
+align-items: center;
+z-index: 1;
+}
+.feature .scroll-back {
+display: block;
+position: absolute;
+width: 3rem;
+height: calc(100% - 1rem);
+background: #fff;
+cursor: pointer;
+top: 0;
+left: 0;
+padding-left: 2rem;
+padding-bottom: 1.25rem;
+display: flex;
+align-items: center;
+z-index: 1;
+transform: translateX(-100%);
+}
+.feature-img.list-item .feature-img-caption {
+right: auto;
+left: 2rem;
+bottom: 2rem;
+top: auto;
+text-align: left;
+font-size: 4rem;
+text-shadow: -0.25rem 0.25rem #181f40, -0.5rem 0.5rem #ffff47;
+color: #ffff47
+}
+}
+
+@media (min-width: 1024px) {
+.feature-img .feature-img-caption {
+font-size: 5rem !important;
+}
 }
 </style>
 </head>
 <body>
-<div class="preload">
+<!--div class="preload">
 	<img src="images/rear.svg">
-</div>
+</div-->
 <header>
 <nav class="nav">
 <ul>
@@ -114,7 +249,32 @@ padding: 5rem;
 </section>
 <section id="about">
 <div class="container">
-<h2>WEIRD<br>IS<br>COOL</h2>
+	<div class="feature">
+		<div class="scroll-back"><i class="fas fa-chevron-left"></i></div>
+		<div class="feature-img">
+			<img src="images/weird.webp"/>
+			<h2 class="feature-img-caption">Weird<br>is<br><del>Weird</del></h2>
+		</div>
+		<div class="feature-text">
+			<h2>Well, actually it's COOL.</h2>
+			<p>One day, I woke up, opened NotePad, typed in it "Hello World", saved the file as "myfirstwebpage.html", opened it again and stared at it for hours. Right then, I knew I was going to become the greatest web designer someday. And then, I actually woke up. Fast forward 5 years, now, I've worked on quite a few sites, both front-end and the back-end (where all the magic happens). Right now, I am onto bigger concepts of designing and development.</p>
+		</div>
+		<div class="feature-img list-item" data-index="1">
+		<div class="scroll-next"><i class="fas fa-chevron-right"></i></div>
+			<img src="images/s1.webp"/>
+			<h2 class="feature-img-caption">Crea<br>tive<br>Pass<br>ion</h2>
+		</div>
+		<div class="feature-img list-item" data-index="2">
+		<div class="scroll-next"><i class="fas fa-chevron-right"></i></div>
+			<img src="images/s2.webp"/>
+			<h2 class="feature-img-caption">Indi<br>-e-<br>an<br>Dev</h2>
+		</div>
+		<div class="feature-img list-item" data-index="3">
+		<div class="scroll-next"><i class="fas fa-chevron-right"></i></div>
+			<img src="images/s3.webp"/>
+			<h2 class="feature-img-caption">H.<br>for<br>Music</h2>
+		</div>
+	</div>
 </div>
 </section>
 <section id="contact">
@@ -147,8 +307,8 @@ padding: 5rem;
 			<div class="subject">
 				<div class="radio-group"><input class="radio" type="radio" name="subject" id="webdesign" value="Web Design Request from website" required>
 					<label for="webdesign">Web Designing</label></div>
-				<div class="radio-group"><input class="radio" type="radio" name="subject" id="logodesign" value="Logo Design Request from website">
-					<label for="logodesign">Logo Designing</label></div>
+				<div class="radio-group"><input class="radio" type="radio" name="subject" id="brandcampaign" value="Brand Campaigning Request from website">
+					<label for="brandcampaign">Brand Campaigning</label></div>
 				<div class="radio-group"><input class="radio" type="radio" name="subject" id="contentwriting" value="Content Writing Request from website">
 					<label for="contentwriting">Content Writing</label></div>
 				<div class="radio-group"><input class="radio" type="radio" name="subject" id="other" value="Special Request from website">
@@ -172,10 +332,11 @@ padding: 5rem;
 </footer>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script>
    $(document).ready(function(){
 	   var navHeight = $('.nav').height();
+	   var windowHeight = $(window).height();
 	   function fixNav() {
 			 if ($(window).scrollTop() > navHeight) {
 				 $('.nav, .name, .avatar-img.front').addClass('fixed');
@@ -184,6 +345,37 @@ padding: 5rem;
 				 $('.nav, .name, .avatar-img.front').removeClass('fixed');
 			 }
 	   }
+	   
+	   $('.scroll-next').on('click', function() {
+	   		var $this = $(this),
+	   		$item = $this.parents('.list-item'),
+	   		n = $item.data("index");
+	   		$('.feature').stop().animate({
+                  scrollLeft: n * $item.outerWidth()
+                }, 600);
+	   });
+	   $('.scroll-back').on('click', function() {
+	   		$('.feature').stop().animate({
+                  scrollLeft: 0
+                }, 600);
+	   });
+	   $('.feature').on('scroll', function() {
+	   		if ( $(this).scrollLeft() > $(this).children('.feature-img').outerWidth()){
+	   			$('.scroll-back').css('transform', 'translateX(0)');
+	   		} else {
+	   			$('.scroll-back').css('transform', 'translateX(-100%)');
+	   		}
+	   		$('.feature .list-item').each( function() {
+	   			$this = $(this);
+	   			var $anchor = $this.offset().left + ($this.outerWidth() / 3);
+	   			if( $anchor < $('.feature').width() ) {
+	   				$(this).children('.scroll-next').css('opacity', 0);
+	   			} else {
+	   				$(this).children('.scroll-next').css('opacity', 1);
+	   			}
+	   		})
+	   });
+	   
 		$('.radio-group label').on('click', function() {
 			setTimeout(() => {
 			if ($('input[id="other"]').prop('checked')) {
@@ -267,7 +459,6 @@ $('a[href*="#"]')
 var didScroll;
 var lastScrollTop = 0;
 var delta = 15;
-var windowHeight = $(window).height();
 
 $(window).on('scroll', function(event){
     didScroll = true;
@@ -287,8 +478,10 @@ function hasScrolled() {
         return;
         if (st > lastScrollTop && st > windowHeight){
         $('.nav, .avatar-img.fixed').css('transform','translateY(-20vh)');
+        $('div.social.is-open').removeClass('is-open');
+        $('.follow').html('Follow <i class="fas fa-chevron-right"></i>');
     } else {
-        if(st + $(window).height() < $(document).height()) {
+        if(st + windowHeight < $(document).height()) {
         $('.nav, .avatar-img.fixed').css('transform','translateY(0)');
         }
     }
