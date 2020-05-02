@@ -111,6 +111,9 @@ text-shadow: 0.125rem 0.125rem #181f40,
 -0.75rem 0.75rem #181f40;
 transform: scale(1.0125);
 }
+.strike {
+text-decoration: line-through;
+}
 .description, .greeting {
 font-weight: 500;
 font-size: 3.5vw;
