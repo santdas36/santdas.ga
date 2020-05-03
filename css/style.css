@@ -281,11 +281,14 @@ outline: none;
 .scroll-down{
 position: absolute;
 bottom: 2rem;
-right: 5rem;
-transform: translateX(-50%);
+right: 7rem;
 text-decoration: none;
 font-size: 1.5rem;
-font-weight: 500
+font-weight: 500;
+color: #181f40;
+}
+.scroll-down:hover{
+transform: scale(1.05);
 }
 .scroll-down span {
 border: 0.2rem solid #181f40;
