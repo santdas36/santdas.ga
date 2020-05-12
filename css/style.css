@@ -460,8 +460,11 @@ margin-top: 3rem;
 footer {
 background: #181f40;
 color: #ffff47;
-text-align: center;
-padding: 3rem 3rem 2.5rem 3rem;
+padding: 3rem;
+}
+.foot-title {
+margin: 3rem 0;
+font-size: 2.25rem;
 }
 .copy {
 margin: 0;
@@ -570,6 +573,16 @@ margin: 10rem 0;
 display: flex;
 width: 50%;
 }
+footer {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+padding: 3rem 5rem;
+}
+footer div:last-child {
+text-align: right;
+}
+
 }
 @media (min-width: 750px) {
 section#contact .container {

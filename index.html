@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164978597-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-
         gtag('config', 'UA-164978597-1');
     </script>
     <script type='application/ld+json'>
-        { "@context": "http://www.schema.org", "@type": "person", "name": "DASH SANTOSH", "url": "https://santdas.ga/", "address": { "@type": "PostalAddress", "addressLocality": "Salem", "addressRegion": "Tamil Nadu", "postalCode": "636006", "addressCountry": "India" }, "email": "santdas36@gmail.com", "telephone": "+917867943737", "birthDate": "2001-06-03" }
+      { 
+        "@context": "http://www.schema.org",
+        "@type": "person",
+        "name": "DASH SANTOSH",
+        "url": "https://santdas.ga/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Salem",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "636006",
+          "addressCountry": "India"
+        },
+        "email": "santdas36@gmail.com",
+        "telephone": "+917867943737",
+        "birthDate": "2001-06-03"
+      }
     </script>
     <meta charset="utf-8">
     <title>DASH SANTOSH</title>
@@ -51,7 +63,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="preload">
         <img src="images/rear.svg">
@@ -64,14 +75,12 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="https://blog.santdas.ga" target="_blank" class="nav-link">Blog</a></li>
                 <li class="follow-toggle"><a href="#" class="follow">Follow <i class="fas fa-chevron-right"></i></a>
-
                     <div class="social">
                         <a href="https://facebook.com/santdas36"><span class="fab fb fa-facebook-f fa-fw"></span></a>
                         <a href="https://dribbble.com/santdas36"><span class="fab db fa-dribbble fa-fw"></span></a>
                         <a href="https://instagram.com/santdas36"><span class="fab ig fa-instagram fa-fw"></span></a>
                         <a href="https://twitter.com/santdas36"><span class="fab tw fa-twitter fa-fw"></span></a>
                     </div>
-
                 </li>
             </ul>
         </nav>
@@ -320,19 +329,25 @@
             </div>
         </section>
     </main>
-
     <footer>
-        <p class="copy">Copyright 2020 | <a href="http://instagram.com/santdas36">@santdas36</a></p>
-        <p class="copy reg">All &reg; logos are properties of their respective owners.</p>
+        <div>
+            <h2 class="foot-title">DASH SANTOSH</h2>
+            <p class="copy">
+                Yep, you read that right. <br>
+                Designer, Developer, Writer.
+            </p>
+        </div>
+        <div>
+            <p class="copy reg">All &reg; logos are properties of <br>their respective owners.</p>
+            <p class="copy"><br>Copyright 2020 | <a href="http://instagram.com/santdas36">@santdas36</a></p>
+        </div>
     </footer>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script>
     $(document).ready(function() {
         var navHeight = $('.nav').height();
         var windowHeight = $(window).height();
-
         function fixNav() {
             if ($(window).scrollTop() > navHeight) {
                 $('.nav, .name, .avatar-img.front').addClass('fixed');
@@ -459,7 +474,6 @@
                     }
                 }
             });
-
         $("#contact-form").submit(function(e) {
             e.preventDefault();
             var $form = $(this);
@@ -482,19 +496,16 @@
         var didScroll;
         var lastScrollTop = 0;
         var delta = 15;
-
         $(window).on('scroll', function(event) {
             didScroll = true;
             fixNav();
         });
-
         setInterval(function() {
             if (didScroll) {
                 hasScrolled();
                 didScroll = false;
             }
         }, 250);
-
         function hasScrolled() {
             var st = $(this).scrollTop();
             if (Math.abs(lastScrollTop - st) <= delta)
@@ -508,7 +519,6 @@
                     $('.nav, .avatar-img').css('transform', 'translateY(0)');
                 }
             }
-
             lastScrollTop = st;
         }
         $(window).on('load', function() {
@@ -522,5 +532,4 @@
         });
     });
 </script>
-
 </html>
