@@ -906,7 +906,7 @@ display: flex;
 flex-flow: row wrap;
 }
 .service h3 {
-height: 6rem
+height: 3em;
 }
 .iknow ul {
 margin: 4rem 0;
