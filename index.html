@@ -367,6 +367,11 @@
                     }, 200);
                 }
             });
+            var scrolled = $(window).scrollTop() - $('#cta2').offset().top;
+                $('.cta-2 .stuff-inner').css({ 
+                    'background-position':'50% '+(-.4*scrolled)+'px' 
+                });
+            
         });
         $('.cta-btn, .cta-btn-2').on('click', function() {
             setTimeout(() => {
@@ -504,7 +509,7 @@
             if (Math.abs(lastScrollTop - st) <= delta)
                 return;
             if (st > lastScrollTop && st > windowHeight) {
-                $('.nav, .avatar-img').css('transform', 'translateY(-20vh)');
+                $('.nav, .avatar-img.fixed').css('transform', 'translateY(-20vh)');
                 $('div.social.is-open').removeClass('is-open');
                 $('.follow').html('Follow <i class="fas fa-chevron-right"></i>');
             } else {

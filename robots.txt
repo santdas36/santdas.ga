@@ -1,4 +1,4 @@
-User-agent: *
-Allow: /
-
 Sitemap: https://santdas.ga/sitemap.xml
+
+User-agent: *
+Disallow: 
