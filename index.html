@@ -62,7 +62,7 @@
             <ul>
                 <li><a href="#home" class="nav-link hidden">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#cta2" class="nav-link">Contact</a></li>
                 <li><a href="https://blog.santdas.ga" target="_blank" class="nav-link">Blog</a></li>
                 <li class="follow-toggle"><a href="#" class="follow">Follow <i class="fas fa-chevron-right"></i></a>
                     <div class="social">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="cta">
-                    <a href="#contact" class="cta-btn">Get in touch</a>
+                    <a href="#cta2" class="cta-btn">Get in touch</a>
                 </div>
                 <a href="#about" class="scroll-down">
                     <span class="fas fa-chevron-down"></span>Scroll
@@ -139,18 +139,22 @@
                             <h2>Stuff I can do</h2>
                             <div class="services">
                                 <div class="service">
+                                <img src="images/d1.webp" alt="Design and Develop" class="service-img">
                                     <h3>Design what you want, develop what you need.</h3>
                                     <p>The goal here is simple. Create awe-inspiring, fully responsive, cross-platform websites out of your vision with added creativity and simplicity.</p>
                                 </div>
                                 <div class="service">
+                                <img src="images/d2.webp" alt="Brand Campaigning" class="service-img">
                                     <h3>Make your Brand reach-out.</h3>
                                     <p>Trust is what it takes. Help you gain the trust of your target audience, with effective Logos, amazing posters and campaigns in social media.</p>
                                 </div>
                                 <div class="service">
+                                <img src="images/d3.webp" alt="Write Content" class="service-img">
                                     <h3>Write pro content for all your needs.</h3>
                                     <p>Never worry about having to squeeze your brain again, to write content for your websites, blogs, social handles, etc. while you have me.</p>
                                 </div>
                                 <div class="service">
+                                <img src="images/d4.webp" alt="and a lot more" class="service-img">
                                     <h3>And a lot more.</h3>
                                     <p>Infact, I can do jokes on demand, XD. The section with collections of my recent works is still under construction. Meanwhile, check out my <a target="_blank" href="https://blog.santdas.ga">blog.</a></p>
                                 </div>
@@ -234,7 +238,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="cta-2">
+                    <div class="cta-2" id="cta2">
                         <div class="stuff-inner">
                             <h2>Got anything in your mind?</h2>
                             <p>Have a startling idea, but don't know where to begin? Looking for someone to design a website for your new startup? Staring at your empty blog page?
@@ -252,7 +256,6 @@
                 <div class="contact-split">
                     <div class="contact-details">
                         <div class="contact-inner">
-                            <img src="images/contact.webp" alt="Get in touch" />
                             <h2>Get in touch</h2>
                             <p class="contact-text">S. Dash Santosh
                                 <br> Tamil Nadu, India
@@ -346,7 +349,7 @@
             }
         }
         $(window).scroll(function() {
-            var bottom_of_services = $('.services').offset().top + $('.services').outerHeight() / 3;
+            var bottom_of_services = $('.services').offset().top + $('.services').outerHeight() / 10;
             var bottom_of_window = $(window).scrollTop() + $(window).height();
             if (bottom_of_window > bottom_of_services) {
                 $('.service').each(function(i) {
