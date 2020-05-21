@@ -988,6 +988,8 @@ text-align: center;
 .feature-img .feature-img-caption {
 font-size: 5rem !important;
 }
+}
+@media (min-width: calc(1024px + 10rem)) {
 section#contact .container {
 padding-bottom: 14rem;
 }
