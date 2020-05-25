@@ -746,6 +746,7 @@ color: #ffffff;
 background: url(../images/cta2.webp) no-repeat, linear-gradient(#191e41, #191e41);
 background-size: cover;
 padding: 8rem 3rem;
+transition: none !important;
 }
 .cta-2 h2 {
 margin: 0;
