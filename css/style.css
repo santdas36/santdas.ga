@@ -1,20 +1,20 @@
 @font-face {
-font-family: "HelveticaNeue";
+font-family: "HNFont";
 src: url("fonts/HN_Regular.otf") format("opentype");
 font-weight: 400;
 }
 @font-face {
-font-family: "HelveticaNeue";
+font-family: "HNFont";
 src: url("fonts/HN_MediumExpanded.otf") format("opentype");
 font-weight: 500;
 }
 @font-face {
-font-family: "HelveticaNeue";
+font-family: "HNFont";
 src: url("fonts/HN_Bold.otf") format("opentype");
 font-weight: 700;
 }
 @font-face {
-font-family: "HelveticaNeue";
+font-family: "HNFont";
 src: url("fonts/HN_BlackExpanded.otf") format("opentype");
 font-weight: 900;
 }
@@ -28,7 +28,7 @@ color: #fff;
 body {
 background: #ffff47;
 color: #181f40;
-font-family: "HelveticaNeue";
+font-family: "HNFont", "Helvetica Neue", sans-serif;
 width: 100vw;
 -webkit-tap-highlight-color: transparent;
 }
