@@ -25,21 +25,6 @@ transition: all 0.3s;
 background: #181f40;
 color: #fff;
 }
-::-webkit-scrollbar {
-width: 14px;
-}
-::-webkit-scrollbar-track {
-box-shadow: inset 0 0 14px 14px #ffff47;
-border: solid 4px #ffff47;
-}
-::-webkit-scrollbar-thumb {
-box-shadow: inset 0 0 14px 14px #181f40;
-border: solid 4px #ffff47;
-border-radius: 14px;
-}
-::-webkit-scrollbar-button {
-display: none;
-}
 body {
 background: #ffff47;
 color: #181f40;
