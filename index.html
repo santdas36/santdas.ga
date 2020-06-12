@@ -66,6 +66,7 @@
     <link href="css/fontawesome/css/solid.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
@@ -373,6 +374,8 @@
     </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.12.0/js/jquery.overlayScrollbars.min.js
+"></script>
 <script>
     $(document).ready(function() {
         var navHeight = $('.nav').height();
@@ -564,6 +567,8 @@
                 }, 600);
             }, 300);
         });
+        
+        $("body").overlayScrollbars({ });
     });
 </script>
 
