@@ -567,13 +567,12 @@
         });
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.12.0/js/jquery.overlayScrollbars.min.js
+<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.12.0/js/OverlayScrollbars.min.js
 "></script>
 <script>
-$(function() {
-$("body").overlayScrollbars({ });
-}
-);
+document.addEventListener("DOMContentLoaded", function() {
+    OverlayScrollbars(document.querySelectorAll("body"), { }); 
+});
 </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
