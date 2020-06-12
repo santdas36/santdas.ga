@@ -47,8 +47,8 @@ color: #181f40;
 font-family: "HNFont", "Helvetica Neue", sans-serif;
 width: 100vw;
 -webkit-tap-highlight-color: transparent;
-overflow-y: hidden;
-overflow-x: scroll;
+overflow-x: hidden;
+overflow-y: scroll;
 }
 #home .container {
 display: flex;
