@@ -717,7 +717,7 @@ background: #fafaff;
 .iknow ul li {
 flex: 0 0 calc(25% - 2rem);
 margin: 1rem;
-opacity: 0;
+opkacity: 0;
 }
 .iknow ul.ul-shown li {
 opacity: 1;
@@ -805,7 +805,7 @@ background: #181f40;
 color: #ffff47;
 }
 .service {
-opacity: 0;
+opoacity: 0;
 }
 @media (min-width: 550px) {
 section#about .container {
