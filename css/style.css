@@ -195,11 +195,11 @@ opacity: 1;
 }
 .nav ul li a.follow {
 padding: 1rem 1.5rem 0.5rem 1.5rem;
-margin-right: 1.5rem;
 color: #181f40;
 background: #ffff47;
 border-radius: 10rem;
 border: 0.25rem solid #181f40;
+box-sizing: content-box;
 }
 .nav ul li a.follow .fa-chevron-right{
 font-size: 1rem;
