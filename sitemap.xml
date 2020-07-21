@@ -10,5 +10,15 @@
 			<changefreq>weekly</changefreq>
 		</url>
 
+		<url>
+			<loc>https://design.santdas.ga/monotono</loc>
+			<changefreq>weekly</changefreq>
+		</url>
+
+		<url>
+			<loc>https://design.santdas.ga/gradients</loc>
+			<changefreq>weekly</changefreq>
+		</url>
+
 	</urlset>
 
