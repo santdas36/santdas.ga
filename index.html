@@ -440,9 +440,7 @@ ga('send', 'pageview');
             $('.feature').scrollLeft(n * $item.outerWidth());
         });
         $('.scroll-back').on('click', function() {
-            $('.feature').stop().animate({
-                scrollLeft: 0
-            }, 600);
+            $('.feature').scrollLeft(0);
         });
         $('.feature').on('scroll', function() {
             if ($(this).scrollLeft() > $(this).children('.feature-img').outerWidth()) {
