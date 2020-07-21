@@ -898,6 +898,7 @@ overflow-x: scroll;
 -ms-overflow-style: none;
 scroll-snap-type: x mandatory;
 scroll-padding: 5rem;
+scroll-behavior: smooth;
 }
 .feature::-webkit-scrollbar {
 display: none;

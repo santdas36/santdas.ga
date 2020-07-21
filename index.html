@@ -437,9 +437,7 @@ ga('send', 'pageview');
             var $this = $(this),
                 $item = $this.parents('.list-item'),
                 n = $item.data("index");
-            $('.feature').stop().animate({
-                scrollLeft: n * $item.outerWidth()
-            }, 600);
+            $('.feature').scrollLeft(n * $item.outerWidth());
         });
         $('.scroll-back').on('click', function() {
             $('.feature').stop().animate({
