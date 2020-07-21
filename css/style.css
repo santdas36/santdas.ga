@@ -221,10 +221,11 @@ top: calc(100% + 3rem);
 align-items: center;
 }
 .nav ul div.social {
-display: none;
+display: flex;
+pointer-events: none;
 }
 .nav ul div.social.is-open {
-display: flex;
+pointer-events: auto;
 }
 .nav ul div.social a span {
 padding: 0.75rem 0.5rem;
@@ -234,7 +235,38 @@ border: solid 0.25rem #181f40;
 font-size: 2rem;
 background: #ffff47;
 color: #181f40;
+transform: translateY(-0.75rem);
+opacity: 0;
 }
+.nav ul div.social.is-open a span {
+transform: translateY(0);
+opacity: 1;
+}
+.nav ul div.social a:nth-of-type(1) span {
+transition-delay: 0.3s;
+}
+.nav ul div.social a:nth-of-type(2) span {
+transition-delay: 0.2s;
+}
+.nav ul div.social a:nth-of-type(3) span {
+transition-delay: 0.1s;
+}
+.nav ul div.social a:nth-of-type(4) span {
+transition-delay: 0s;
+}
+.nav ul div.social.is-open a:nth-of-type(1) span {
+transition-delay: 0.1s;
+}
+.nav ul div.social.is-open a:nth-of-type(2) span {
+transition-delay: 0.2s;
+}
+.nav ul div.social.is-open a:nth-of-type(3) span {
+transition-delay: 0.3s;
+}
+.nav ul div.social.is-open a:nth-of-type(4) span {
+transition-delay: 0.4s;
+}
+
 .nav ul div.social a:hover span {
 background: #181f40;
 color: #ffff47;
@@ -388,7 +420,7 @@ height: 100%;
 }
 .nav ul li {
 opacity: 0;
-transform: translateY(50%);
+transform: translateY(0.75rem);
 transition-delay: 0;
 }
 .nav.is-open ul li {
@@ -429,6 +461,9 @@ display: initial;
 flex-flow: row nowrap;
 right: 50%;
 transform: translateX(50%);
+}
+.nav ul div.social a span {
+transform: translateY(0.75rem);
 }
 .avatar {
 width: 66%;
@@ -575,6 +610,16 @@ width: 0;
 .radio:checked + label {
 background: #181f40;
 color: #fff;
+}
+input[name="subject-other"] {
+max-height: 0;
+opacity: 0;
+pointer-events: none;
+}
+input[name="subject-other"].isOpen {
+max-height: 5em;
+opacity: 1;
+pointer-events: auto;
 }
 ::placeholder {
 color: #181f40;
@@ -851,6 +896,8 @@ width: 100%;
 padding: 9rem 0;
 overflow-x: scroll;
 -ms-overflow-style: none;
+scroll-snap-type: x mandatory;
+scroll-padding: 5rem;
 }
 .feature::-webkit-scrollbar {
 display: none;
@@ -865,6 +912,7 @@ justify-content: flex-end;
 .feature .feature-img {
 flex: 0 0 30%;
 position: relative;
+scroll-snap-align: end;
 }
 .feature-img img {
 width: 100%;

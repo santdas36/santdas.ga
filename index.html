@@ -356,7 +356,7 @@ ga('send', 'pageview');
                                         <label for="other">Other...</label>
                                     </div>
                                 </div>
-                                <input type="text" name="subject-other" style="display: none" placeholder="please specify the subject...">
+                                <input type="text" name="subject-other" id="subject-other" placeholder="please specify the subject...">
                             </div>
                             <div class="input-group">
                                 <label for="message">Message</label>
@@ -466,9 +466,9 @@ ga('send', 'pageview');
         $('.radio-group label').on('click', function() {
             setTimeout(() => {
                 if ($('input[id="other"]').prop('checked')) {
-                    $('input[name="subject-other"]').slideDown(200).prop("required", true);
+                    $('input[name="subject-other"]').addClass('isOpen').prop("required", true);
                 } else {
-                    $('input[name="subject-other"]').slideUp(200).prop("required", false);
+                    $('input[name="subject-other"]').removeClass('isOpen').prop("required", false);
                 }
             }, 100);
         });
