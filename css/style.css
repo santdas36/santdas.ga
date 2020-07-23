@@ -113,25 +113,22 @@ z-index: -1;
 .name {
 font-weight: 900;
 text-transform: uppercase;
-color: #ffff47;
-text-shadow:
-0.125rem 0.125rem #181f40,
--0.125rem -0.125rem #181f40,
--0.125rem 0.125rem #181f40,
-0.125rem -0.125rem #181f40,
--0.5rem 0.5rem #181f40;
+color: #f0e818;
+text-shadow: -0.5rem 0.5rem #181f40;
+-webkit-text-fill-color: #ffff47;
+-webkit-text-stroke: 0.125rem #181f40;
+text-stroke: 0.125rem #181f40;
 letter-spacing: 0.125rem;
 font-size: 5.75vw;
 margin: 1rem 0 1rem 0.5rem;
 line-height: 1.2;
 }
 .name:hover {
-text-shadow: 0.125rem 0.125rem #181f40,
--0.125rem -0.125rem #181f40,
--0.125rem 0.125rem #181f40,
-0.125rem -0.125rem #181f40,
+text-shadow:
 -0.5rem 0.5rem #ffff47,
 -0.75rem 0.75rem #181f40;
+-webkit-text-stroke: 0.175rem #181f40;
+text-stroke: 0.175rem #181f40;
 transform: scale(1.0125);
 }
 .strike {
@@ -151,6 +148,16 @@ left: -1.5vw;
 position: absolute;
 left: 22vw;
 transform: translateX(-50%);
+}
+.like-what {
+position: absolute;
+height: 12rem;
+left: 100%;
+top: 25%;
+opacity: 0;
+}
+.description:hover .like-what {
+opacity: 1;
 }
 .nav {
 padding: 3rem 3rem 0 0;
@@ -488,15 +495,22 @@ position: static;
 padding: 3rem 0;
 }
 .description, .greeting {
-font-size: 7.5vw;
+font-size: 7vw;
 transform: none;
 left: 0;
 position: relative;
 text-align: center;
 }
 .name {
-font-size: 12.75vw;
+font-size: 12vw;
 text-align: center;
+}
+.name:hover {
+-webkit-text-stroke: 0.15rem #181f40;
+text-stroke: 0.15rem #181f40;
+}
+.like-what {
+display: none;
 }
 }
 @media (min-width: 751px) {
