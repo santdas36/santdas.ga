@@ -526,17 +526,15 @@ ga('send', 'pageview');
             setTimeout(() => {
                 $('.success').fadeIn(200);
             }, 200);
-            $.post($form.attr("action"), $form.serialize()).then(
-                function() {
+            $.post($form.attr("action"), $form.serialize()).then(() => {
+                setTimeout(() => {
+                    $('.success').fadeTo(200, 0);
                     setTimeout(() => {
-                        $('.success').fadeTo(200, 0);
-                        setTimeout(() => {
-                            $('.success').html('<i class="fas fa-check fa-4x"></i><h3>Message Sent!</h3>');
-                            $('.success').fadeTo(200, 1);
-                        }, 600);
-                    }, 1000);
-                }
-            ).catch(() => {
+                        $('.success').html('<i class="fas fa-check fa-4x"></i><h3>Message Sent!</h3>');
+                        $('.success').fadeTo(200, 1);
+                    }, 600);
+                }, 1000);
+            }).catch(() => {
                 alert("Some error occurred. Please try again");
                 $form.show();
                 $('.success').hide();
